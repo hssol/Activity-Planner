@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #head{
+        display: inline;
+        margin-right: 500px;
+    }
+    .header{
+        display: inline-block;
+        border-bottom: 2px solid black;
+        margin-bottom: 50px;
+    }
+    </style>
+    
+    <title>Activity</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header"><h1 id="head">Dojo Activity Center</h1><a href="/dashboard">Dashboard</a> | <a href="/logout">Log Out</a></div> 
+        <h1>@ViewBag.occurance.Title</h1>
+        <br>
+        <h4>Event Coordinator: @ViewBag.creator.FirstName</h4>
+        <br>
+        <h4>Description:</h4>
+        <p>@ViewBag.occurance.Description</p>
+        <h4>Participants:</h4>
+        @{
+            foreach(var a in ViewBag.occurance.Attendees)
+            {
+                <p>--@a.User.FirstName @a.User.LastName</p>
+            }
+        }
+    </div>
+</body>
+</html>

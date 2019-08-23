@@ -1,0 +1,56 @@
+@using BeltExam.Models
+@model Occurance
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+            #head{
+            display: inline;
+            margin-right: 500px;
+        }
+        .header{
+            display: inline-block;
+            border-bottom: 2px solid black;
+            margin-bottom: 50px;
+        }
+        .formdiv{
+            width: 100%;
+        }
+        </style>
+    <title>New Activity</title>
+</head>
+<body>
+    <div class="header"><h1 id="head">Dojo Activity Center</h1><a href="/dashboard">Dashboard</a> | <a href="/logout">Log Out</a></div>
+    <h1>Create an Activity</h1>
+    <div class="formdiv">
+            <form action="/addoccurance" method="post">
+                <span asp-validation-for="Title"></span>
+                <label>Title:</label>
+                <input type="text" name="Title" size="40"> <br>
+                <span asp-validation-for="Date"></span>
+                <label>Date:</label>
+                <input asp-for="Date"> <br>
+                <span asp-validation-for="Duration"></span>
+                <label>Duration:</label>
+                <input type="number" name="Duration">
+                <select name="DurationType">
+                    <option value="Minutes">Minutes</option>
+                    <option value="Hours">Hours</option>
+                    <option value="Days">Days</option>
+                </select> <br>
+                <span asp-validation-for="Description"></span>
+                <label>Description:</label>
+                <input type="text" name="Description" size="33"> <br>
+                <input Name="CreatorId" value="@ViewBag.creatorId" hidden>
+                <button type="submit">Create Activity</button>
+            </form>
+    </div>
+    
+</body>
+</html>
+
